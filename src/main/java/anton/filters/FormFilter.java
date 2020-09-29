@@ -1,13 +1,10 @@
-package anton;
+package anton.filters;
 
 import java.io.*;
-import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class FormFilter implements Filter {
-
-    private static final ArrayList<User> users = new ArrayList<>();
 
     @Override
     public void destroy() {
@@ -19,7 +16,6 @@ public class FormFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-
         HttpServletRequest request = (HttpServletRequest) req;
         if(req.getParameter("check")==null && request.getSession().getAttribute("check")==null){
             HttpServletResponse response = (HttpServletResponse) resp;

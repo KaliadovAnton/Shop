@@ -5,17 +5,24 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         version="2.5">
     <welcome-file-list>
-        <welcome-file>shop.html</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>main-serv</servlet-name>
-        <servlet-class>anton.MainServlet</servlet-class>
+        <servlet-class>anton.servlet.MainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>login-serv</servlet-name>
+        <servlet-class>anton.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>temp-serv</servlet-name>
-        <servlet-class>anton.JspServlet</servlet-class>
+        <servlet-class>anton.servlet.JspServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>login-serv</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>temp-serv</servlet-name>
         <url-pattern>/temp-serv</url-pattern>
@@ -34,28 +41,33 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>jsp-servlet</servlet-name>
-        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>/first-jsp.jsp</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>
+            anton.listener.ConListener
+        </listener-class>
+    </listener>
 
     <filter>
         <filter-name>FormFilter</filter-name>
-        <filter-class>anton.FormFilter</filter-class>
+        <filter-class>anton.filters.FormFilter</filter-class>
         <init-param>
             <param-name>LogFileName</param-name>
             <param-value>UserLog.txt</param-value>
         </init-param>
     </filter>
     <filter>
-        <filter-name>ShopFilter</filter-name>
-        <filter-class>anton.ShopFilter</filter-class>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>anton.filters.LoginFilter</filter-class>
         <init-param>
             <param-name>LogFileName</param-name>
             <param-value>UserLog.txt</param-value>
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>ShopFilter</filter-name>
-        <url-pattern>/first-jsp.jsp</url-pattern>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/default.jsp</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>FormFilter</filter-name>

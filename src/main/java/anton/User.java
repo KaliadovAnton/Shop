@@ -1,26 +1,28 @@
 package anton;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class User {
-    private final String name;
-    private static final ArrayList<User> users = new ArrayList<>();
-    public User(String name){
-        this.name = name;
-    }
+    private String name;
+    private boolean check;
 
     public String getName() {
         return name;
     }
-
-    public static void writeDownUser(String name){
-        users.add(new User(name));
+    public void setName(String name){
+        this.name = name;
     }
-    public static String getUserName(String name){
-        for(User user: users){
-            if(user.getName().equals(name)) return user.getName();
-        }
-        writeDownUser(name);
-        return name;
+    public boolean isValid() throws SQLException {
+        System.out.println(this.name);
+        ResultSet set = ConnectionHelper.createStatement().executeQuery("select login from user where login='"+ this.name +"';");
+        return set.next();
+    }
+
+    public boolean isChecked(String check) {
+        return check != null;
+    }
+    public void checked(){
+        this.check = true;
     }
 }

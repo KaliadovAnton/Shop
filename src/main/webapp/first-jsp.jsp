@@ -3,7 +3,10 @@
 <%@ page import="anton.Good" %>
 
 <% int pre = 0 ;%>
-
+<%
+    Cookie[] cookies = request.getCookies();
+    String name = cookies[0].getValue();
+    %>
 <!doctype html>
 <html>
 <head>
@@ -11,11 +14,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
-    <h1>Hello, <%= request.getSession().getAttribute("name") %>!</h1>
+    <h1>Hello, <%= name %>!</h1>
     <%  ArrayList<Good> goods = (ArrayList) request.getAttribute("goods");
-        request.getSession().setAttribute("check", "check");
-        request.getSession().setAttribute("name", request.getParameter("name"));
-        request.getServletContext().setAttribute("check", "check");
+        request.setAttribute("name", request.getAttribute("name"));
         %>
         <c:forEach var="preorder" items="${preorders}">
             <%= ++pre%>) ${preorder}
@@ -32,5 +33,8 @@
     <form action="/my-app/check" method="POST">
         <p><input type="submit" name="select" value="Submit"></p>
     </form>
+    <form action="/my-app/temp-serv" method="POST">
+            <p><input type="submit" name="flush" value="Flush"></p>
+        </form>
 </body>
 </html>
