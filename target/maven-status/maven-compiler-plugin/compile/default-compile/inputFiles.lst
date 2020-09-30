@@ -1,12 +1,13 @@
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\filters\LoginFilter.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\listener\ConListener.java
+C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\services\PropertyReader.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\ShopFilter.java
-C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\services\ParseService.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\servlet\MainServlet.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\User.java
+C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\servlet\JspServlet.java
+C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\services\ParseService.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\services\DBService.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\filters\FormFilter.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\servlet\LoginServlet.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\Good.java
-C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\servlet\JspServlet.java
 C:\Users\kaaba\IdeaProjects\servletapp\src\main\java\anton\ConnectionHelper.java

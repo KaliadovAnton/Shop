@@ -1,5 +1,8 @@
 package anton;
 
+import anton.services.PropertyReader;
+
+import java.io.IOException;
 import java.sql.*;
 
 public class ConnectionHelper {
@@ -9,10 +12,12 @@ public class ConnectionHelper {
     static {
         try {
             Class.forName("org.h2.Driver");
-            connection = DriverManager.getConnection("jdbc:h2:~/test;DB_CLOSE_DELAY=-1", "sa", "Ялюблюдевочеквочках2");
+            connection = DriverManager.getConnection(PropertyReader.getProperty("jdbc.url"), PropertyReader.getProperty("jdbc.user"), PropertyReader.getProperty("jdbc.password"));
             statement = connection.createStatement();
 
         } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
